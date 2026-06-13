@@ -1,0 +1,22 @@
+{
+  "name": "xhs-article-card-pack",
+  "version": "0.1.0",
+  "owner": "blcaptain-meta-skill-maintainers",
+  "updated_at": "2026-06-12",
+  "review_cadence": "per-release",
+  "status": "experimental",
+  "maturity_tier": "production",
+  "lifecycle_stage": "production",
+  "risk_level": "medium",
+  "platforms": [
+    "Codex Skills",
+    "general Agent Skills"
+  ],
+  "validation_commands": [
+    "python3 scripts/validate_skill_pack.py .",
+    "python3 scripts/eval_routes.py evals/route_cases.json",
+    "python3 scripts/check_card_plan.py assets/templates/sample-card-plan.json",
+    "python3 \"${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py\" ."
+  ],
+  "notes": "处理用户提供的人像和产品截图时保持最小必要使用；不包含密钥、真实客户数据或外部依赖。"
+}

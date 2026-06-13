@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Editor temp files
+*.swp
+*.swo
+*~
+
+# Scratch / backup artifacts
+*.tmp
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+
+# Build output
+dist/
+build/
+
+# Internal work logs
+tasks/

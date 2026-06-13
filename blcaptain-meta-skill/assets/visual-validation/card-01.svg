@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440" role="img" aria-label="卡片一 封面">
+  <rect width="1080" height="1440" fill="#f7f3ea"/>
+  <rect x="64" y="64" width="952" height="1312" rx="36" fill="#ffffff" stroke="#111827" stroke-width="4"/>
+  <circle cx="134" cy="135" r="44" fill="#1f2937"/>
+  <text x="198" y="128" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">InsightFlow 会议纪要</text>
+  <text x="198" y="171" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="24" fill="#475569">把会议变成可追踪行动</text>
+  <text x="92" y="306" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="86" font-weight="900" fill="#111827">会议开完</text>
+  <text x="92" y="412" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="86" font-weight="900" fill="#111827">没人推进？</text>
+  <rect x="92" y="500" width="694" height="18" fill="#2563eb"/>
+  <text x="92" y="628" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="46" fill="#334155">纪要的价值是：</text>
+  <text x="92" y="704" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="56" font-weight="800" fill="#dc2626">任务清楚、责任清楚</text>
+  <rect x="92" y="852" width="896" height="316" rx="28" fill="#eef2ff"/>
+  <text x="138" y="940" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="38" font-weight="700" fill="#312e81">这 6 张卡会讲清楚</text>
+  <text x="138" y="1020" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" fill="#334155">1. 为什么普通纪要没人看</text>
+  <text x="138" y="1084" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" fill="#334155">2. 如何自动抽取任务和风险</text>
+  <text x="138" y="1148" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" fill="#334155">3. 什么团队最适合先用</text>
+  <text x="92" y="1292" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="30" fill="#64748b">01 / 06</text>
+</svg>

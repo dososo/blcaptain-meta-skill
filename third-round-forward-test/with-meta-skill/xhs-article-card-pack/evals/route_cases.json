@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "id": "route-positive-article-avatar-screenshot",
+      "type": "positive",
+      "request": "把这篇中文长文章、我的头像和产品截图做成 6 张小红书竖版图文卡片。",
+      "expected_trigger": true,
+      "reason": "明确要求中文长文、头像、产品截图和 6 张小红书竖版卡片。"
+    },
+    {
+      "id": "route-positive-xhs-carousel",
+      "type": "positive",
+      "request": "帮我把这篇公众号文章改成小红书图文轮播，封面加头像，最后一页引导收藏。",
+      "expected_trigger": true,
+      "reason": "小红书图文轮播和头像卡片化是核心触发。"
+    },
+    {
+      "id": "route-positive-product-proof",
+      "type": "positive",
+      "request": "我有 3 张 SaaS 产品截图，想配合长文观点做一套种草卡片。",
+      "expected_trigger": true,
+      "reason": "长文观点与产品截图转种草卡片，应触发。"
+    },
+    {
+      "id": "route-negative-summary-only",
+      "type": "negative",
+      "request": "把这篇文章总结成 300 字。",
+      "expected_trigger": false,
+      "reason": "只是摘要，不需要图文卡片流程。"
+    },
+    {
+      "id": "route-negative-title-polish",
+      "type": "negative",
+      "request": "给这篇文章起 10 个更吸引人的标题。",
+      "expected_trigger": false,
+      "reason": "只做标题，不涉及 6 卡视觉化。"
+    },
+    {
+      "id": "route-near-neighbor-ppt",
+      "type": "near_neighbor",
+      "request": "把这篇中文文章做成 6 页演示文稿。",
+      "expected_trigger": false,
+      "reason": "6 页 PPT 是近邻任务，但不是小红书竖版图文卡片。"
+    },
+    {
+      "id": "route-near-neighbor-instagram",
+      "type": "near_neighbor",
+      "request": "把这篇文章做成 Instagram 方图轮播。",
+      "expected_trigger": false,
+      "reason": "社媒轮播相似，但平台和比例目标不同。"
+    }
+  ]
+}

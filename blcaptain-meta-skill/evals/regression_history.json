@@ -1,0 +1,42 @@
+{
+  "skill": "blcaptain-meta-skill",
+  "updated_at": "2026-06-12",
+  "records": [
+    {
+      "id": "reg-2026-06-12-context-budget-real-tokenizer",
+      "change": "context_budget.py added explicit OpenAI tokenizer mode while preserving offline heuristic fallback.",
+      "reason": "Third-round enhancement item 12 requires a real target-platform tokenizer path instead of relying only on heuristic estimates.",
+      "baseline": [
+        {
+          "command": "python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md --tokenizer openai --encoding o200k_base",
+          "exit_code": 2,
+          "output": "error: unrecognized arguments: --tokenizer openai --encoding o200k_base"
+        }
+      ],
+      "rerun_commands": [
+        {
+          "command": "python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md",
+          "exit_code": 0,
+          "output": "OK blcaptain-meta-skill/SKILL.md: approx_tokens=1174, mode=heuristic, lines=77, max=1300"
+        },
+        {
+          "command": "uv run --with tiktoken python blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md --tokenizer openai --encoding o200k_base",
+          "exit_code": 0,
+          "output": "OK blcaptain-meta-skill/SKILL.md: tokens=936, mode=openai:o200k_base, lines=77, max=1300"
+        },
+        {
+          "command": "python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md --tokenizer openai --encoding o200k_base",
+          "exit_code": 1,
+          "output": "ERROR blcaptain-meta-skill/SKILL.md: OpenAI tokenizer mode requires tiktoken. Run with: uv run --with tiktoken python scripts/context_budget.py ..."
+        }
+      ],
+      "cases_covered": [
+        "default-offline-context-budget",
+        "real-openai-tokenizer-count",
+        "missing-tokenizer-negative"
+      ],
+      "result": "pass",
+      "residual_risk": "Claude exact token count still requires an authenticated Anthropic Count Tokens API call in a release environment."
+    }
+  ]
+}

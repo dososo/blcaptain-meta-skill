@@ -1,0 +1,40 @@
+{
+  "skill": "blcaptain-meta-skill",
+  "families": [
+    {
+      "id": "one-off-vs-reusable",
+      "symptom": "A one-off request is packaged into a full Skill.",
+      "corrective_action": "Use direct answer, prompt, or note unless reuse and verification are real."
+    },
+    {
+      "id": "explain-not-package",
+      "symptom": "The user asks for explanation but the agent starts scaffolding.",
+      "corrective_action": "Answer the explanation request and offer Skill packaging only if the user asks."
+    },
+    {
+      "id": "document-export-vs-agent-skill",
+      "symptom": "A human-readable SOP is mistaken for an executable Agent Skill.",
+      "corrective_action": "Create a document unless routing, execution, and eval are required."
+    },
+    {
+      "id": "future-outline-vs-build",
+      "symptom": "A future idea is implemented before real delivery evidence exists.",
+      "corrective_action": "Run Stage 0 and collect a high-fidelity query or baseline failure."
+    },
+    {
+      "id": "route-near-neighbor",
+      "symptom": "Similar tasks such as README, AGENTS.md, or CLI creation trigger the Skill incorrectly.",
+      "corrective_action": "Tighten description and add near-neighbor route cases."
+    },
+    {
+      "id": "context-bloat",
+      "symptom": "The SKILL.md grows into a PRD or tutorial.",
+      "corrective_action": "Move heavy material to references and keep the entrypoint procedural."
+    },
+    {
+      "id": "governance-theater",
+      "symptom": "Manifest, reports, or policies exist without real examples, evals, or gotchas.",
+      "corrective_action": "Downgrade maturity or add evidence before claiming governed status."
+    }
+  ]
+}

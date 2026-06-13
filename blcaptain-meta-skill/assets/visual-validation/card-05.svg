@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440" role="img" aria-label="卡片五 执行清单">
+  <rect width="1080" height="1440" fill="#fff7ed"/>
+  <circle cx="134" cy="135" r="44" fill="#1f2937"/>
+  <text x="198" y="128" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">适用场景</text>
+  <text x="198" y="171" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="24" fill="#7c2d12">先从高频会议开始</text>
+  <text x="84" y="302" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="70" font-weight="900" fill="#0f172a">6 类会议最适合</text>
+  <g font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif">
+    <rect x="84" y="430" width="912" height="112" rx="24" fill="#ffffff"/>
+    <text x="126" y="500" font-size="34" font-weight="800" fill="#ea580c">01</text>
+    <text x="218" y="500" font-size="34" font-weight="700" fill="#0f172a">产品评审会</text>
+    <rect x="84" y="584" width="912" height="112" rx="24" fill="#ffffff"/>
+    <text x="126" y="654" font-size="34" font-weight="800" fill="#ea580c">02</text>
+    <text x="218" y="654" font-size="34" font-weight="700" fill="#0f172a">客户访谈会</text>
+    <rect x="84" y="738" width="912" height="112" rx="24" fill="#ffffff"/>
+    <text x="126" y="808" font-size="34" font-weight="800" fill="#ea580c">03</text>
+    <text x="218" y="808" font-size="34" font-weight="700" fill="#0f172a">跨部门周会</text>
+    <rect x="84" y="892" width="912" height="112" rx="24" fill="#ffffff"/>
+    <text x="126" y="962" font-size="34" font-weight="800" fill="#ea580c">04</text>
+    <text x="218" y="962" font-size="34" font-weight="700" fill="#0f172a">项目风险复盘</text>
+    <rect x="84" y="1046" width="912" height="112" rx="24" fill="#ffffff"/>
+    <text x="126" y="1116" font-size="34" font-weight="800" fill="#ea580c">05</text>
+    <text x="218" y="1116" font-size="34" font-weight="700" fill="#0f172a">销售交接会议</text>
+    <rect x="84" y="1200" width="912" height="112" rx="24" fill="#ffffff"/>
+    <text x="126" y="1270" font-size="34" font-weight="800" fill="#ea580c">06</text>
+    <text x="218" y="1270" font-size="34" font-weight="700" fill="#0f172a">上线前检查会</text>
+  </g>
+  <text x="84" y="1370" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="30" fill="#9a3412">05 / 06</text>
+</svg>

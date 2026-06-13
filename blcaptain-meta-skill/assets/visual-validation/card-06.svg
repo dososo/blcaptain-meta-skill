@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440" role="img" aria-label="卡片六 总结">
+  <rect width="1080" height="1440" fill="#ecfdf5"/>
+  <circle cx="134" cy="135" r="44" fill="#1f2937"/>
+  <text x="198" y="128" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">最后一页</text>
+  <text x="198" y="171" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="24" fill="#166534">收藏给下一次会议复盘</text>
+  <text x="84" y="320" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="76" font-weight="900" fill="#0f172a">别再让会议</text>
+  <text x="84" y="420" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="76" font-weight="900" fill="#16a34a">停在纪要里</text>
+  <rect x="84" y="548" width="912" height="414" rx="34" fill="#ffffff"/>
+  <text x="134" y="642" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="42" font-weight="800" fill="#0f172a">InsightFlow 先帮你拆行动</text>
+  <text x="134" y="730" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="42" font-weight="800" fill="#0f172a">再帮团队追踪责任</text>
+  <text x="134" y="836" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" fill="#334155">适合产品、运营、客户成功团队。</text>
+  <text x="134" y="898" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" fill="#334155">下一次会后，先看行动清单。</text>
+  <rect x="84" y="1060" width="912" height="180" rx="32" fill="#0f172a"/>
+  <text x="132" y="1134" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="38" font-weight="800" fill="#f8fafc">收藏这张清单</text>
+  <text x="132" y="1194" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" fill="#cbd5e1">下次复盘就从“谁负责”开始。</text>
+  <text x="84" y="1340" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="30" fill="#166534">06 / 06</text>
+</svg>

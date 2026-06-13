@@ -1,0 +1,32 @@
+{
+  "failures": [
+    {
+      "id": "summary-not-card-plan",
+      "family": "execution-collapse",
+      "symptom": "输出 6 段文章摘要，没有视觉主体、素材策略和 QA。",
+      "correct_behavior": "输出 6 张卡片计划，每张包含角色、标题、正文、视觉焦点、素材策略、版式说明、生成提示词和 QA。",
+      "gotcha": "把文章摘要当成卡片脚本"
+    },
+    {
+      "id": "visual-occlusion",
+      "family": "visual-layout",
+      "symptom": "标题或贴纸遮挡头像五官、产品截图关键 UI、数据或按钮。",
+      "correct_behavior": "把头像和截图关键区域视为保护区域，标题和标注绕开。",
+      "gotcha": "标题压住头像或产品 UI"
+    },
+    {
+      "id": "invented-product-proof",
+      "family": "factuality",
+      "symptom": "为了让第 5 卡更有说服力，编造截图中没有的功能、价格、指标或客户案例。",
+      "correct_behavior": "只使用可追溯素材，不确定内容标为待用户确认。",
+      "gotcha": "编造截图和产品结论"
+    },
+    {
+      "id": "near-neighbor-overtrigger",
+      "family": "route-near-neighbor",
+      "symptom": "普通摘要、PPT、Instagram 方图任务误触发本 Skill。",
+      "correct_behavior": "只有明确小红书、竖版图文、轮播卡片、头像/截图卡片化时触发。",
+      "gotcha": "误触发到普通总结任务"
+    }
+  ]
+}

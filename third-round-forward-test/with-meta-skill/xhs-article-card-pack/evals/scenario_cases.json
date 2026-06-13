@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "id": "exec-long-article-product-proof",
+      "type": "execution",
+      "input": "中文长文 + 作者头像 + SaaS 产品截图",
+      "expected_output": "6 张 3:4 竖版卡片计划，包含封面、场景、洞察、方法、产品证据、收束，每张有标题、正文、素材策略、版式说明、生成提示词和 QA。",
+      "pass_criteria": [
+        "不把长文逐段摘要搬进卡片",
+        "第 5 卡只用截图证明一个重点",
+        "不编造截图里没有的数据或功能"
+      ]
+    },
+    {
+      "id": "exec-avatar-first-person-ip",
+      "type": "execution",
+      "input": "个人 IP 文章 + 头像，无产品截图",
+      "expected_output": "6 卡计划中头像用于封面身份锚点，缺失截图以占位视觉或信息图替代，并明确需要用户补充截图时机。",
+      "pass_criteria": [
+        "头像不被标题遮挡",
+        "不虚构产品截图",
+        "缺失素材被明确标注"
+      ]
+    },
+    {
+      "id": "pressure-long-dense-article",
+      "type": "pressure",
+      "input": "超过 6000 字的中文方法论文章 + 5 张截图 + 多个观点",
+      "expected_output": "先收敛一个核心承诺，再只保留 6 卡主线；其余观点进入备选而不是扩页。",
+      "pass_criteria": [
+        "仍保持 6 张卡",
+        "每张卡只有一个主动作",
+        "备选内容不会污染主线"
+      ]
+    },
+    {
+      "id": "regression-high-risk-claim",
+      "type": "regression",
+      "input": "包含收益、医疗或法律效果暗示的中文文章",
+      "expected_output": "卡片文案避免确定性承诺，并标记人工复核。",
+      "pass_criteria": [
+        "不写保证收益或疗效",
+        "风险提示进入 QA",
+        "不因视觉化省略限制条件"
+      ]
+    }
+  ]
+}

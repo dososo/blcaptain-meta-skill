@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440" role="img" aria-label="卡片三 方法框架">
+  <rect width="1080" height="1440" fill="#0f172a"/>
+  <circle cx="134" cy="135" r="44" fill="#f8fafc"/>
+  <text x="198" y="128" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" font-weight="700" fill="#f8fafc">产品方法</text>
+  <text x="198" y="171" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="24" fill="#cbd5e1">把会议拆成行动系统</text>
+  <text x="84" y="298" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="72" font-weight="900" fill="#f8fafc">AI 不只摘要</text>
+  <text x="84" y="390" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="72" font-weight="900" fill="#38bdf8">还要抽取行动</text>
+  <g font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" font-weight="700">
+    <rect x="84" y="510" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="122" y="582" fill="#f8fafc">1 议题</text>
+    <rect x="580" y="510" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="618" y="582" fill="#f8fafc">2 决策</text>
+    <rect x="84" y="674" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="122" y="746" fill="#f8fafc">3 任务</text>
+    <rect x="580" y="674" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="618" y="746" fill="#f8fafc">4 负责人</text>
+    <rect x="84" y="838" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="122" y="910" fill="#f8fafc">5 截止日</text>
+    <rect x="580" y="838" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="618" y="910" fill="#f8fafc">6 风险</text>
+    <rect x="84" y="1002" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="122" y="1074" fill="#f8fafc">7 跟进</text>
+    <rect x="580" y="1002" width="416" height="118" rx="22" fill="#1e293b"/>
+    <text x="618" y="1074" fill="#f8fafc">8 复盘</text>
+  </g>
+  <rect x="84" y="1212" width="912" height="96" rx="24" fill="#38bdf8"/>
+  <text x="134" y="1274" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="34" font-weight="800" fill="#082f49">把会议结论变成可执行清单。</text>
+  <text x="84" y="1360" font-family="'Hiragino Sans GB', 'Heiti SC', Arial, sans-serif" font-size="30" fill="#94a3b8">03 / 06</text>
+</svg>

@@ -1,0 +1,49 @@
+# BLCaptain Meta Skill License
+
+This project is source-available. Personal use and use in open-source projects are free. Closed-source commercial use requires a separate commercial license.
+
+## 1. Definitions
+
+"Software" means the files, documentation, scripts, templates, examples, and skill package distributed in this repository.
+
+"Personal Use" means use by an individual for learning, research, experimentation, personal productivity, or non-commercial work.
+
+"Open-Source Use" means use in a project whose source code is publicly available and whose license allows users to inspect, modify, and redistribute the project source.
+
+"Closed-Source Commercial Use" means use by a company, organization, team, contractor, or individual in a proprietary product, internal proprietary workflow, paid service, private automation system, client delivery, or other commercial context where the relevant source code or skill package is not publicly available under an open-source license.
+
+## 2. Free Permissions
+
+You may use, copy, modify, and distribute the Software for:
+
+1. Personal Use.
+2. Open-Source Use.
+3. Evaluation before purchasing a commercial license.
+
+These permissions are granted at no charge, provided that you keep this license notice with the Software or any substantial copy of it.
+
+## 3. Commercial License Required
+
+Closed-Source Commercial Use is not permitted under the free license.
+
+If you want to use the Software in a closed-source commercial product, private commercial workflow, paid client project, internal company automation, commercial Agent platform, or proprietary skill library, you must purchase a separate commercial license from the maintainers.
+
+## 4. Restrictions
+
+You may not:
+
+1. Remove or obscure this license notice.
+2. Claim that you created the original Software.
+3. Sell, sublicense, or redistribute the Software as a standalone paid product without a commercial license.
+4. Use the Software in closed-source commercial contexts without a commercial license.
+5. Use the project name, maintainer identity, or associated marks to imply endorsement without permission.
+
+## 5. Contributions
+
+Unless otherwise agreed in writing, contributions submitted to this project are licensed under the same terms as this license.
+
+## 6. No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

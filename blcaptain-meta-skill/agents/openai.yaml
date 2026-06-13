@@ -1,0 +1,7 @@
+interface:
+  display_name: "BLCaptain Meta Skill"
+  short_description: "把复用工作流产品化为可验证 Agent Skill"
+  default_prompt: "Use $blcaptain-meta-skill to turn this repeated workflow into a productized, testable Agent Skill."
+
+policy:
+  allow_implicit_invocation: true

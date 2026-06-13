@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-06-12",
+  "primary_target": "Codex/OpenAI Agent Skills",
+  "source_policy": "Use official platform documentation plus the local skill-creator schema bundled with the active Codex environment.",
+  "targets": [
+    {
+      "platform": "Codex/OpenAI Agent Skills",
+      "schema_sources": [
+        {
+          "type": "official_doc",
+          "url": "https://developers.openai.com/codex/skills",
+          "http_status_verified": 200,
+          "finding": "A skill is a directory with SKILL.md plus optional scripts, references, assets, and agents metadata; SKILL.md requires name and description."
+        },
+        {
+          "type": "local_runtime_schema",
+          "path": "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/references/openai_yaml.md",
+          "finding": "agents/openai.yaml supports interface display metadata, default_prompt, tool dependencies, and policy.allow_implicit_invocation."
+        }
+      ],
+      "tokenizer_sources": [
+        {
+          "type": "official_doc",
+          "url": "https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken",
+          "http_status_verified": 200,
+          "finding": "OpenAI documents tiktoken as the practical tokenizer library for counting model tokens."
+        },
+        {
+          "type": "tool_distribution",
+          "url": "https://github.com/openai/tiktoken",
+          "http_status_verified": 200,
+          "finding": "The local executable check used tiktoken 0.13.0 through uv."
+        }
+      ],
+      "schema_result": {
+        "status": "pass",
+        "command": "python3 ${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py blcaptain-meta-skill",
+        "output": "Skill is valid!"
+      },
+      "tokenizer_result": {
+        "status": "pass",
+        "tool": "tiktoken",
+        "tool_version": "0.13.0",
+        "encoding": "o200k_base",
+        "command": "uv run --with tiktoken python blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md --tokenizer openai --encoding o200k_base",
+        "tokens": 936,
+        "heuristic_tokens": 1174,
+        "difference": -242,
+        "difference_note": "The heuristic over-counted this SKILL.md by 242 tokens versus o200k_base; the heuristic remains useful as an offline conservative guard, but release checks should prefer tiktoken."
+      }
+    },
+    {
+      "platform": "Claude Agent Skills",
+      "schema_sources": [
+        {
+          "type": "official_doc",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+          "http_status_verified": 200,
+          "finding": "Claude Agent Skills require SKILL.md with YAML frontmatter containing name and description, with optional supporting resources."
+        },
+        {
+          "type": "official_doc",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/token-counting",
+          "http_status_verified": 200,
+          "finding": "Claude token counting is exposed through Anthropic token counting APIs rather than a local tokenizer bundled with this repository."
+        }
+      ],
+      "schema_result": {
+        "status": "reviewed",
+        "finding": "The package keeps Claude-compatible name and description frontmatter and avoids platform-only metadata inside SKILL.md."
+      },
+      "tokenizer_result": {
+        "status": "not_executed_no_credentials",
+        "tool": "Anthropic Count Tokens API",
+        "command_required": "Use an authenticated Anthropic token counting request against the release-target Claude model.",
+        "release_gate": "Public Claude release must add the API response with model, token_count, request shape, and date."
+      }
+    }
+  ],
+  "differences": [
+    "Codex/OpenAI has local quick_validate and local openai.yaml guidance in the active skill-creator package.",
+    "Claude compatibility should be kept in SKILL.md/frontmatter/resource layout; Claude exact token count needs an authenticated API call.",
+    "The meta skill should keep platform-specific metadata outside SKILL.md unless the target platform explicitly supports it."
+  ]
+}

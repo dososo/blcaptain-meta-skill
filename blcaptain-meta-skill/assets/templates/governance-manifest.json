@@ -1,0 +1,12 @@
+{
+  "name": "skill-name",
+  "version": "0.1.0",
+  "owner": "person-or-team",
+  "updated_at": "YYYY-MM-DD",
+  "review_cadence": "per-release",
+  "status": "experimental",
+  "maturity_tier": "scaffold",
+  "lifecycle_stage": "scaffold",
+  "risk_level": "low",
+  "validation_commands": []
+}

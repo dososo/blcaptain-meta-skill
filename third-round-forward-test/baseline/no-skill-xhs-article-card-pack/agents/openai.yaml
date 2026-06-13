@@ -1,0 +1,4 @@
+interface:
+  display_name: "小红书文章卡片包"
+  short_description: "将中文长文章和视觉素材转成小红书六图卡片创作流程与提示词"
+  default_prompt: "使用 $no-skill-xhs-article-card-pack 将这篇中文长文、头像和产品截图转成 6 张小红书竖版图文卡片方案。"

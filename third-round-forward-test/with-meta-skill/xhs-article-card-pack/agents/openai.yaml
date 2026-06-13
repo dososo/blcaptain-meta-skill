@@ -1,0 +1,7 @@
+interface:
+  display_name: "小红书 6 卡图文"
+  short_description: "将中文长文、头像和截图转为六张小红书竖版卡片创作流程"
+  default_prompt: "使用 $xhs-article-card-pack 把这篇中文长文、头像和产品截图整理成 6 张小红书竖版图文卡片方案。"
+
+policy:
+  allow_implicit_invocation: true

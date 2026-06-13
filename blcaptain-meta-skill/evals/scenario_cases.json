@@ -1,0 +1,35 @@
+{
+  "skill": "blcaptain-meta-skill",
+  "scenarios": [
+    {
+      "id": "scenario-a-social-card",
+      "role": "creator",
+      "task": "Turn a long-form article workflow into a social-card-making Skill.",
+      "real_input": "A 3000-word article, author avatar, two product screenshots, and a Xiaohongshu-first distribution goal.",
+      "expected_output": "A skill brief, route description, minimal SKILL.md, gotchas, eval cases, and visual safety checks.",
+      "required_route_cases": ["positive", "negative", "near_neighbor"],
+      "failure_case": "Agent uses purple gradients, crops screenshots, repeats layouts, and puts text over faces.",
+      "gotcha": "Text must not cover faces, product UI, or key screenshot data."
+    },
+    {
+      "id": "scenario-b-ops-sop",
+      "role": "operations",
+      "task": "Turn customer follow-up SOP into an Agent Skill.",
+      "real_input": "Customer tiers, follow-up cadence, CRM fields, escalation rules, and forbidden promises.",
+      "expected_output": "Branching workflow, field schema, compliance gotchas, route evals, and escalation checks.",
+      "required_route_cases": ["positive", "negative", "near_neighbor"],
+      "failure_case": "Agent over-promises, skips CRM fields, and fails to escalate sensitive customers.",
+      "gotcha": "High-risk users must be escalated instead of handled with generic reply templates."
+    },
+    {
+      "id": "scenario-c-engineering",
+      "role": "engineering",
+      "task": "Turn a team's development discipline into a coding workflow Skill.",
+      "real_input": "Feature request, repository, test command, style rules, and PR checklist.",
+      "expected_output": "Plan-first workflow, minimal-change rules, test-first gates, validation commands, and review checklist.",
+      "required_route_cases": ["positive", "negative", "near_neighbor"],
+      "failure_case": "Agent edits unrelated files, skips tests, and claims manual verification without evidence.",
+      "gotcha": "Do not mark work complete until the required verification command has been run or the failure is documented."
+    }
+  ]
+}

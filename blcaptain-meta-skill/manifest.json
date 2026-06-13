@@ -1,0 +1,49 @@
+{
+  "name": "blcaptain-meta-skill",
+  "version": "0.1.0",
+  "owner": "blcaptain-meta-skill-maintainers",
+  "updated_at": "2026-06-13",
+  "review_cadence": "per-release",
+  "status": "experimental",
+  "maturity_tier": "production",
+  "target_maturity": "governed",
+  "lifecycle_stage": "production",
+  "risk_level": "high",
+  "source_prd": "docs/blcaptain-meta-skill-design.md",
+  "satisfied_promotion_evidence": [
+    "Execution-level fork_context=false subagent forward-test created a child skill package and passed validation",
+    "Regression history records the context_budget.py real-tokenizer RED/GREEN change with rerun evidence",
+    "Codex/OpenAI schema was checked with the local skill-creator quick_validate command",
+    "OpenAI tiktoken o200k_base context measurement is recorded for SKILL.md"
+  ],
+  "remaining_promotion_requirements": [
+    "End-to-end visual generation with real user-authorized article, avatar, and product screenshot assets",
+    "OCR overflow and face/screenshot obstruction checks for rendered visual outputs",
+    "Claude Count Tokens API response for the release-target Claude model",
+    "Real multi-skill routing telemetry beyond local fixture evals",
+    "Human release approval recorded as promotion_evidence"
+  ],
+  "validation_limitations": [
+    "Current route evals are fixture/schema checks, not platform routing telemetry",
+    "Current execution-level forward-test covers child skill package creation and validation, not real customer-authorized end-to-end image generation",
+    "context_budget.py defaults to a heuristic for offline use; OpenAI tiktoken is supported and Claude token counting still requires an authenticated API call"
+  ],
+  "compatibility": [
+    "Claude Skills",
+    "Codex Skills",
+    "Universal Agent Skills"
+  ],
+  "validation_commands": [
+    "python3 ${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py blcaptain-meta-skill",
+    "python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill",
+    "python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md",
+    "uv run --with tiktoken python blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md --tokenizer openai --encoding o200k_base",
+    "python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json"
+  ],
+  "evidence_files": [
+    "evals/forward_test_results.json",
+    "evals/regression_history.json",
+    "evals/platform_schema_tokenizer_check.json",
+    "examples/visual-card-validation.md"
+  ]
+}
