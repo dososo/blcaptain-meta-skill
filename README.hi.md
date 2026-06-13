@@ -76,6 +76,22 @@ BLCaptain Meta Skill तीसरे level पर focus करता है: per
 - Creators: articles, visuals, videos, decks, courses और topics के लिए production flywheel बनाएं।
 - Domain experts: professional judgment, consulting flows, service standards और business experience को productize करें।
 
+## Supported platforms
+
+यह Skill सिर्फ Codex के लिए नहीं है, और सिर्फ Claude Code के लिए भी नहीं है।
+
+BLCaptain Meta Skill का core एक standard Skill folder है: `SKILL.md` + `references/` + `assets/` + `examples/` + `evals/` + `scripts/`। कोई भी Agent जो local Skill folder पढ़ सकता है या Agent Skills जैसी capability support करता है, सही platform setup के साथ इसे इस्तेमाल कर सकता है।
+
+| Platform / tool | Support mode | Notes |
+| --- | --- | --- |
+| Codex / OpenAI Agent Skills | Direct install | `blcaptain-meta-skill/` को local skills directory में copy करें और `$blcaptain-meta-skill` call करें |
+| Claude Skills | Compatible | `blcaptain-meta-skill/` को target platform की अपेक्षित जगह import या place करें |
+| Claude Code | Compatible | Claude Code को इस repository या Skill folder को पढ़ने दें, फिर `SKILL.md` और resource directories इस्तेमाल करें |
+| Other Skill-capable Agents | General methodology package | अगर Agent `SKILL.md` और resource folders पढ़ सकता है, तो workflow follow कर सकता है; metadata को platform के अनुसार adjust करना पड़ सकता है |
+| Plain chatbots | Direct install के लिए recommended नहीं | अगर tool folders, scripts और resources नहीं पढ़ सकता, तो इसे सिर्फ methodology reference की तरह इस्तेमाल करें |
+
+Official docs Agent Skills को instructions, metadata, scripts, templates और resources के packages के रूप में बताते हैं, जो Agent capabilities बढ़ाते हैं। यह project उसी model का पालन करता है; यह किसी एक client से बंधा prompt नहीं है।
+
 ## Scope
 
 Skill में बदलने लायक tasks में आमतौर पर ये traits होते हैं:
@@ -196,9 +212,20 @@ Use $blcaptain-meta-skill इस existing Skill को review करें औ�
 
 ## Installation
 
-### Codex / Local Agent
+### 1. Project प्राप्त करें
 
-`blcaptain-meta-skill/` को अपने skills directory में copy करें।
+Git से clone करें:
+
+```bash
+git clone https://github.com/dososo/blcaptain-meta-skill.git
+cd blcaptain-meta-skill
+```
+
+या GitHub पर `Code -> Download ZIP` से download करके local machine पर unzip करें।
+
+### 2. Codex / Local Agent
+
+repository के अंदर वाले Skill package folder `blcaptain-meta-skill/` को अपनी skills directory में copy करें।
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -211,12 +238,34 @@ cp -R blcaptain-meta-skill ~/.codex/skills/
 Use $blcaptain-meta-skill मैं repeatable workflow को Skill बनाना चाहता हूं।
 ```
 
-### Claude Skills / Other Agents
+### 3. Claude Skills / Claude Code / Other Agents
 
-1. Agent को `blcaptain-meta-skill/SKILL.md` पढ़ने दें।
-2. सुनिश्चित करें कि `references/`, `assets/templates/`, `examples/`, `evals/` और `scripts/` access हो सकते हैं।
-3. target platform का install path और metadata rules फिर से check करें।
-4. release से पहले validation commands चलाएं।
+अलग-अलग clients में installation UI अलग हो सकता है, लेकिन core steps समान हैं।
+
+1. इस repository के `blcaptain-meta-skill/` folder को import, upload या Agent को point करें।
+2. सुनिश्चित करें कि Agent `blcaptain-meta-skill/SKILL.md` पढ़ सकता है।
+3. सुनिश्चित करें कि `references/`, `assets/templates/`, `examples/`, `evals/` और `scripts/` access हो सकते हैं।
+4. target platform के metadata, install path और permissions फिर से check करें।
+5. नई session में call करें:
+
+```text
+Use $blcaptain-meta-skill मैं repeatable workflow को Skill बनाना चाहता हूं।
+```
+
+अगर platform में अभी Skill import feature नहीं है, तो इस repository को project context की तरह दें और Agent से कहें कि action लेने से पहले `blcaptain-meta-skill/SKILL.md` पढ़े।
+
+### 4. Install verify करें
+
+Basic checks चलाएं:
+
+```bash
+python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill
+python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json
+python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" blcaptain-meta-skill
+```
+
+अगर ये commands pass होती हैं, तो package structure, route fixtures और context budget usable हैं।
 
 ## Verification
 

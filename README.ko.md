@@ -76,6 +76,22 @@ BLCaptain Meta Skill은 세 번째 단계에 집중합니다. 개인 노하우, 
 - 크리에이터: 글, 이미지, 영상, 발표자료, 강의, 주제 발굴의 제작 흐름을 재사용합니다.
 - 도메인 전문가: 전문 판단, 컨설팅 흐름, 서비스 기준, 비즈니스 경험을 제품화합니다.
 
+## 지원 플랫폼
+
+이 Skill은 Codex 전용도 아니고 Claude Code 전용도 아닙니다.
+
+BLCaptain Meta Skill의 핵심은 표준 Skill 폴더입니다: `SKILL.md` + `references/` + `assets/` + `examples/` + `evals/` + `scripts/`. 로컬 Skill 폴더를 읽을 수 있거나 Agent Skills 방식의 기능을 지원하는 Agent라면 각 플랫폼 방식에 맞게 사용할 수 있습니다.
+
+| 플랫폼 / 도구 | 지원 방식 | 설명 |
+| --- | --- | --- |
+| Codex / OpenAI Agent Skills | 직접 설치 | `blcaptain-meta-skill/`을 로컬 skills 디렉터리에 복사하고 `$blcaptain-meta-skill`로 호출합니다 |
+| Claude Skills | 호환 사용 | 대상 플랫폼이 요구하는 위치에 `blcaptain-meta-skill/`을 가져오거나 배치합니다 |
+| Claude Code | 호환 사용 | Claude Code가 이 저장소 또는 Skill 폴더를 읽게 하고 `SKILL.md`와 리소스 디렉터리를 사용합니다 |
+| Skill 지원 Agent | 범용 방법론 패키지 | `SKILL.md`와 리소스 폴더를 읽을 수 있으면 실행할 수 있으며, metadata는 플랫폼별 조정이 필요할 수 있습니다 |
+| 일반 챗봇 | 직접 설치 비권장 | 폴더, 스크립트, 리소스를 읽을 수 없다면 방법론 참고 자료로만 사용할 수 있습니다 |
+
+공식 문서에서도 Agent Skills는 instructions, metadata, scripts, templates, resources로 Agent 능력을 확장하는 패키지로 설명됩니다. 이 프로젝트도 그 모델을 따르므로 특정 클라이언트에 묶인 prompt가 아닙니다.
+
 ## 적용 범위
 
 Skill로 만들기 좋은 작업은 보통 이런 특징을 가집니다.
@@ -196,9 +212,20 @@ Use $blcaptain-meta-skill 이 기존 Skill을 리뷰하고 eval, gotchas, 릴리
 
 ## 설치
 
-### Codex / 로컬 Agent
+### 1. 프로젝트 가져오기
 
-`blcaptain-meta-skill/` 디렉터리를 skills 디렉터리에 복사합니다.
+Git으로 clone합니다.
+
+```bash
+git clone https://github.com/dososo/blcaptain-meta-skill.git
+cd blcaptain-meta-skill
+```
+
+GitHub에서 `Code -> Download ZIP`을 눌러 내려받고 압축을 풀어도 됩니다.
+
+### 2. Codex / 로컬 Agent
+
+저장소 안의 Skill 패키지 폴더 `blcaptain-meta-skill/`을 skills 디렉터리에 복사합니다.
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -211,12 +238,34 @@ cp -R blcaptain-meta-skill ~/.codex/skills/
 Use $blcaptain-meta-skill 반복 워크플로를 Skill로 만들고 싶습니다.
 ```
 
-### Claude Skills / 기타 Agent
+### 3. Claude Skills / Claude Code / 기타 Agent
 
-1. Agent가 `blcaptain-meta-skill/SKILL.md`를 읽을 수 있어야 합니다.
-2. `references/`, `assets/templates/`, `examples/`, `evals/`, `scripts/` 접근을 확인합니다.
-3. 대상 플랫폼의 설치 경로와 metadata 규칙을 다시 확인합니다.
-4. 공개 전에 검증 명령을 실행합니다.
+클라이언트마다 설치 화면은 다를 수 있지만 핵심 단계는 같습니다.
+
+1. 이 저장소의 `blcaptain-meta-skill/` 폴더를 가져오거나 업로드하거나 Agent가 참조하게 합니다.
+2. Agent가 `blcaptain-meta-skill/SKILL.md`를 읽을 수 있는지 확인합니다.
+3. `references/`, `assets/templates/`, `examples/`, `evals/`, `scripts/` 접근을 확인합니다.
+4. 대상 플랫폼의 metadata, 설치 경로, 권한을 다시 확인합니다.
+5. 새 세션에서 호출합니다.
+
+```text
+Use $blcaptain-meta-skill 반복 워크플로를 Skill로 만들고 싶습니다.
+```
+
+플랫폼에 Skill 가져오기 기능이 없다면 이 저장소를 프로젝트 자료로 제공하고, 실행 전에 `blcaptain-meta-skill/SKILL.md`를 먼저 읽도록 요청하세요.
+
+### 4. 설치 후 검증
+
+기본 점검을 실행합니다.
+
+```bash
+python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill
+python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json
+python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" blcaptain-meta-skill
+```
+
+이 명령들이 통과하면 패키지 구조, 라우팅 fixture, 컨텍스트 예산을 사용할 수 있습니다.
 
 ## 검증
 

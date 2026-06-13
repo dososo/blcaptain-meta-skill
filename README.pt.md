@@ -76,6 +76,22 @@ Em resumo, ele ajuda a sair de “este prompt parece bom” para “este pacote 
 - Criadores: construir fluxos reutilizáveis para artigos, visuais, vídeos, decks, cursos e pautas.
 - Especialistas: productizar julgamento profissional, consultoria, padrões de serviço e experiência de negócio.
 
+## Plataformas compatíveis
+
+Este Skill não é exclusivo do Codex nem exclusivo do Claude Code.
+
+O núcleo do BLCaptain Meta Skill é uma pasta Skill padronizada: `SKILL.md` + `references/` + `assets/` + `examples/` + `evals/` + `scripts/`. Qualquer Agent que consiga ler uma pasta local de Skill ou que suporte capacidades no estilo Agent Skills pode usá-lo com a configuração adequada da plataforma.
+
+| Plataforma / ferramenta | Modo de suporte | Observações |
+| --- | --- | --- |
+| Codex / OpenAI Agent Skills | Instalação direta | Copie `blcaptain-meta-skill/` para o diretório local de skills e chame `$blcaptain-meta-skill` |
+| Claude Skills | Compatível | Importe ou coloque `blcaptain-meta-skill/` no local exigido pela plataforma alvo |
+| Claude Code | Compatível | Permita que o Claude Code leia este repositório ou a pasta Skill, usando `SKILL.md` e os diretórios de recursos |
+| Outros Agents com suporte a Skill | Pacote metodológico geral | Se o Agent lê `SKILL.md` e pastas de recursos, pode seguir o fluxo; metadata pode precisar de ajuste |
+| Chatbots comuns | Não recomendado como instalação direta | Se a ferramenta não lê pastas, scripts ou recursos, use apenas como referência metodológica |
+
+Documentos oficiais descrevem Agent Skills como pacotes de instructions, metadata, scripts, templates e recursos que ampliam capacidades do Agent. Este projeto segue esse modelo; não é um prompt preso a um único cliente.
+
 ## Escopo
 
 Tarefas boas para virar Skill geralmente têm:
@@ -196,9 +212,20 @@ Use $blcaptain-meta-skill Revise este Skill existente e complete evals, gotchas,
 
 ## Instalação
 
-### Codex / Agent local
+### 1. Obter o projeto
 
-Copie `blcaptain-meta-skill/` para seu diretório de skills.
+Clone com Git:
+
+```bash
+git clone https://github.com/dososo/blcaptain-meta-skill.git
+cd blcaptain-meta-skill
+```
+
+Ou use `Code -> Download ZIP` no GitHub e extraia localmente.
+
+### 2. Codex / Agent local
+
+Copie a pasta interna do pacote Skill `blcaptain-meta-skill/` para seu diretório de skills.
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -211,12 +238,34 @@ Em uma nova sessão:
 Use $blcaptain-meta-skill Quero transformar um fluxo repetível em Skill.
 ```
 
-### Claude Skills / outros Agents
+### 3. Claude Skills / Claude Code / outros Agents
 
-1. Permita que o Agent leia `blcaptain-meta-skill/SKILL.md`.
-2. Confirme acesso a `references/`, `assets/templates/`, `examples/`, `evals/` e `scripts/`.
-3. Revalide caminho de instalação e regras de metadata da plataforma alvo.
-4. Rode comandos de validação antes de publicar.
+Clientes diferentes têm superfícies de instalação diferentes, mas os passos centrais são os mesmos.
+
+1. Importe, envie ou aponte o Agent para a pasta `blcaptain-meta-skill/` deste repositório.
+2. Garanta que ele consiga ler `blcaptain-meta-skill/SKILL.md`.
+3. Confirme acesso a `references/`, `assets/templates/`, `examples/`, `evals/` e `scripts/`.
+4. Revalide metadata, caminho de instalação e permissões da plataforma alvo.
+5. Em uma nova sessão, chame:
+
+```text
+Use $blcaptain-meta-skill Quero transformar um fluxo repetível em Skill.
+```
+
+Se a plataforma ainda não tiver importação de Skill, forneça este repositório como contexto de projeto e peça que o Agent leia `blcaptain-meta-skill/SKILL.md` antes de agir.
+
+### 4. Verificar a instalação
+
+Rode as checagens básicas:
+
+```bash
+python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill
+python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json
+python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" blcaptain-meta-skill
+```
+
+Se esses comandos passarem, a estrutura do pacote, os fixtures de rota e o orçamento de contexto estão utilizáveis.
 
 ## Verificação
 

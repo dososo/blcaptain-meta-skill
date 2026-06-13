@@ -76,6 +76,22 @@ Singkatnya, ia membantu bergerak dari “prompt ini terasa berguna” ke “pake
 - Creator: membangun flywheel produksi untuk artikel, visual, video, deck, kursus, dan ide.
 - Pakar domain: memproduktisasi penilaian profesional, alur konsultasi, standar layanan, dan pengalaman bisnis.
 
+## Platform yang didukung
+
+Skill ini bukan hanya untuk Codex, dan bukan hanya untuk Claude Code.
+
+Inti BLCaptain Meta Skill adalah folder Skill standar: `SKILL.md` + `references/` + `assets/` + `examples/` + `evals/` + `scripts/`. Agent apa pun yang dapat membaca folder Skill lokal atau mendukung kemampuan bergaya Agent Skills dapat menggunakannya dengan konfigurasi platform yang sesuai.
+
+| Platform / alat | Mode dukungan | Catatan |
+| --- | --- | --- |
+| Codex / OpenAI Agent Skills | Instalasi langsung | Salin `blcaptain-meta-skill/` ke direktori skills lokal dan panggil `$blcaptain-meta-skill` |
+| Claude Skills | Kompatibel | Impor atau letakkan `blcaptain-meta-skill/` di lokasi yang diharapkan platform target |
+| Claude Code | Kompatibel | Beri Claude Code akses ke repositori ini atau folder Skill, lalu gunakan `SKILL.md` dan direktori resource |
+| Agent lain yang mendukung Skill | Paket metodologi umum | Jika Agent dapat membaca `SKILL.md` dan folder resource, ia dapat mengikuti workflow; metadata mungkin perlu disesuaikan |
+| Chatbot biasa | Tidak disarankan sebagai instalasi langsung | Jika alat tidak dapat membaca folder, script, atau resource, gunakan hanya sebagai referensi metodologi |
+
+Dokumentasi resmi menjelaskan Agent Skills sebagai paket instructions, metadata, scripts, templates, dan resource yang memperluas kemampuan Agent. Proyek ini mengikuti model tersebut; ini bukan prompt yang terikat pada satu klien.
+
 ## Cakupan
 
 Tugas yang layak menjadi Skill biasanya memiliki:
@@ -196,9 +212,20 @@ Use $blcaptain-meta-skill Review Skill ini dan lengkapi eval, gotchas, release c
 
 ## Instalasi
 
-### Codex / Agent lokal
+### 1. Ambil proyek
 
-Salin `blcaptain-meta-skill/` ke direktori skills.
+Clone dengan Git:
+
+```bash
+git clone https://github.com/dososo/blcaptain-meta-skill.git
+cd blcaptain-meta-skill
+```
+
+Atau gunakan `Code -> Download ZIP` di GitHub dan ekstrak secara lokal.
+
+### 2. Codex / Agent lokal
+
+Salin folder paket Skill internal `blcaptain-meta-skill/` ke direktori skills.
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -211,12 +238,34 @@ Mulai sesi baru:
 Use $blcaptain-meta-skill Saya ingin mengubah workflow berulang menjadi Skill.
 ```
 
-### Claude Skills / Agent lain
+### 3. Claude Skills / Claude Code / Agent lain
 
-1. Pastikan Agent dapat membaca `blcaptain-meta-skill/SKILL.md`.
-2. Pastikan akses ke `references/`, `assets/templates/`, `examples/`, `evals/`, dan `scripts/`.
-3. Cek ulang path instalasi dan aturan metadata platform target.
-4. Jalankan perintah validasi sebelum rilis.
+Setiap klien dapat memiliki permukaan instalasi berbeda, tetapi langkah intinya sama.
+
+1. Impor, unggah, atau arahkan Agent ke folder `blcaptain-meta-skill/` di repositori ini.
+2. Pastikan Agent dapat membaca `blcaptain-meta-skill/SKILL.md`.
+3. Pastikan akses ke `references/`, `assets/templates/`, `examples/`, `evals/`, dan `scripts/`.
+4. Cek ulang metadata, path instalasi, dan izin platform target.
+5. Mulai sesi baru dan panggil:
+
+```text
+Use $blcaptain-meta-skill Saya ingin mengubah workflow berulang menjadi Skill.
+```
+
+Jika platform belum menyediakan fitur impor Skill, berikan repositori ini sebagai konteks proyek dan minta Agent membaca `blcaptain-meta-skill/SKILL.md` sebelum bekerja.
+
+### 4. Verifikasi instalasi
+
+Jalankan pemeriksaan dasar:
+
+```bash
+python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill
+python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json
+python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" blcaptain-meta-skill
+```
+
+Jika perintah ini lulus, struktur paket, fixture routing, dan budget konteks dapat digunakan.
 
 ## Verifikasi
 

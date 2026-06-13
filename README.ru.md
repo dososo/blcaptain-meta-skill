@@ -76,6 +76,22 @@ BLCaptain Meta Skill работает на третьем уровне: прев
 - Креаторы: строить повторяемые конвейеры для статей, визуалов, видео, deck, курсов и тем.
 - Эксперты: продуктизировать профессиональное суждение, консультации, стандарты сервиса и бизнес-опыт.
 
+## Поддерживаемые платформы
+
+Этот Skill не только для Codex и не только для Claude Code.
+
+Ядро BLCaptain Meta Skill — стандартная папка Skill: `SKILL.md` + `references/` + `assets/` + `examples/` + `evals/` + `scripts/`. Любой Agent, который умеет читать локальную Skill-папку или поддерживает возможности в стиле Agent Skills, может использовать его с настройкой под конкретную платформу.
+
+| Платформа / инструмент | Режим поддержки | Примечание |
+| --- | --- | --- |
+| Codex / OpenAI Agent Skills | Прямая установка | Скопируйте `blcaptain-meta-skill/` в локальный каталог skills и вызывайте `$blcaptain-meta-skill` |
+| Claude Skills | Совместимо | Импортируйте или разместите `blcaptain-meta-skill/` там, где целевая платформа ожидает Skill-пакеты |
+| Claude Code | Совместимо | Дайте Claude Code доступ к этому репозиторию или папке Skill и используйте `SKILL.md` вместе с ресурсами |
+| Другие Agents со Skill-поддержкой | Универсальный методологический пакет | Если Agent читает `SKILL.md` и папки ресурсов, он может следовать workflow; metadata может потребовать адаптации |
+| Обычные чат-боты | Не рекомендуется как прямая установка | Если инструмент не читает папки, scripts и ресурсы, используйте только как методологическую справку |
+
+Официальные документы описывают Agent Skills как пакеты instructions, metadata, scripts, templates и ресурсов, расширяющих способности Agent. Этот проект следует той же модели и не является prompt, привязанным к одному клиенту.
+
 ## Область применения
 
 Хорошие кандидаты для Skill обычно имеют:
@@ -196,9 +212,20 @@ Use $blcaptain-meta-skill Проверь этот Skill и дополни evals,
 
 ## Установка
 
-### Codex / локальный Agent
+### 1. Получить проект
 
-Скопируйте `blcaptain-meta-skill/` в каталог skills.
+Клонируйте через Git:
+
+```bash
+git clone https://github.com/dososo/blcaptain-meta-skill.git
+cd blcaptain-meta-skill
+```
+
+Или скачайте через `Code -> Download ZIP` на GitHub и распакуйте локально.
+
+### 2. Codex / локальный Agent
+
+Скопируйте внутреннюю папку Skill-пакета `blcaptain-meta-skill/` в каталог skills.
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -211,12 +238,34 @@ cp -R blcaptain-meta-skill ~/.codex/skills/
 Use $blcaptain-meta-skill Хочу превратить повторяемый процесс в Skill.
 ```
 
-### Claude Skills / другие Agents
+### 3. Claude Skills / Claude Code / другие Agents
 
-1. Agent должен читать `blcaptain-meta-skill/SKILL.md`.
-2. Убедитесь, что доступны `references/`, `assets/templates/`, `examples/`, `evals/` и `scripts/`.
-3. Проверьте путь установки и metadata rules целевой платформы.
-4. Перед публикацией запустите команды проверки.
+У разных клиентов разные интерфейсы установки, но основные шаги одинаковы.
+
+1. Импортируйте, загрузите или укажите Agent на папку `blcaptain-meta-skill/` в этом репозитории.
+2. Убедитесь, что Agent читает `blcaptain-meta-skill/SKILL.md`.
+3. Убедитесь, что доступны `references/`, `assets/templates/`, `examples/`, `evals/` и `scripts/`.
+4. Проверьте metadata, путь установки и permissions целевой платформы.
+5. В новой сессии вызовите:
+
+```text
+Use $blcaptain-meta-skill Хочу превратить повторяемый процесс в Skill.
+```
+
+Если платформа пока не поддерживает импорт Skill, передайте этот репозиторий как project context и попросите Agent сначала прочитать `blcaptain-meta-skill/SKILL.md`.
+
+### 4. Проверить установку
+
+Запустите базовые проверки:
+
+```bash
+python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill
+python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json
+python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" blcaptain-meta-skill
+```
+
+Если команды проходят, структура пакета, route fixtures и context budget пригодны к использованию.
 
 ## Проверка
 

@@ -76,6 +76,22 @@ In short, it helps you move from “this prompt feels useful” to “this capab
 - Creators: build content production flywheels for articles, visuals, videos, decks, courses, and topics.
 - Domain experts: productize professional judgment, consulting flows, service standards, and business experience.
 
+## Supported Platforms
+
+It is not only for Codex, and it is not only for Claude Code.
+
+BLCaptain Meta Skill is a standard Skill folder: `SKILL.md` + `references/` + `assets/` + `examples/` + `evals/` + `scripts/`. Any Agent that can read a local Skill folder or supports Agent Skills-style capabilities can use it with the right platform-specific setup.
+
+| Platform / tool | Support mode | Notes |
+| --- | --- | --- |
+| Codex / OpenAI Agent Skills | Direct install | Copy `blcaptain-meta-skill/` into your local skills directory and call `$blcaptain-meta-skill` |
+| Claude Skills | Compatible | Import or place `blcaptain-meta-skill/` wherever the target platform expects Skill packages |
+| Claude Code | Compatible | Let Claude Code read this repository or the Skill folder, then use `SKILL.md` and the resource directories |
+| Other Skill-capable Agents | General methodology package | If the Agent can read `SKILL.md` and resource folders, it can follow the workflow; metadata may need platform-specific adjustment |
+| Plain chatbots | Not recommended as an install target | If the tool cannot read folders, scripts, or resources, use this only as methodology reference |
+
+Official docs describe Agent Skills as packages of instructions, metadata, scripts, templates, and resources that extend an Agent’s capabilities. This project follows that model; it is not a prompt tied to one client.
+
 ## Scope
 
 Tasks worth turning into a Skill usually have these traits:
@@ -196,9 +212,20 @@ Use $blcaptain-meta-skill Review this existing Skill and fill gaps in evals, got
 
 ## Installation
 
-### Codex / Local Agent
+### 1. Get the Project
 
-Copy `blcaptain-meta-skill/` into your skills directory.
+Clone with Git:
+
+```bash
+git clone https://github.com/dososo/blcaptain-meta-skill.git
+cd blcaptain-meta-skill
+```
+
+Or use `Code -> Download ZIP` on GitHub and unzip it locally.
+
+### 2. Codex / Local Agent
+
+Copy the inner Skill package folder `blcaptain-meta-skill/` into your skills directory.
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -211,12 +238,34 @@ Then start a new session:
 Use $blcaptain-meta-skill I want to turn a repeatable workflow into a Skill.
 ```
 
-### Claude Skills / Other Agents
+### 3. Claude Skills / Claude Code / Other Agents
 
-1. Let the Agent read `blcaptain-meta-skill/SKILL.md`.
-2. Make sure it can access `references/`, `assets/templates/`, `examples/`, `evals/`, and `scripts/`.
-3. Recheck the target platform’s install path and metadata rules.
-4. Run validation commands before release.
+Different clients have different install surfaces, but the core steps are the same:
+
+1. Import, upload, or point the Agent to the `blcaptain-meta-skill/` folder in this repository.
+2. Make sure it can read `blcaptain-meta-skill/SKILL.md`.
+3. Make sure it can access `references/`, `assets/templates/`, `examples/`, `evals/`, and `scripts/`.
+4. Recheck the target platform’s metadata, install path, and permissions.
+5. Start a new session and call:
+
+```text
+Use $blcaptain-meta-skill I want to turn a repeatable workflow into a Skill.
+```
+
+If the platform does not yet provide a Skill import feature, provide this repository as project context and ask the Agent to read `blcaptain-meta-skill/SKILL.md` before acting.
+
+### 4. Verify the Install
+
+Run the basic checks:
+
+```bash
+python3 blcaptain-meta-skill/scripts/validate_meta_skill.py blcaptain-meta-skill
+python3 blcaptain-meta-skill/scripts/eval_routes.py blcaptain-meta-skill/evals/route_cases.json
+python3 blcaptain-meta-skill/scripts/context_budget.py blcaptain-meta-skill/SKILL.md
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" blcaptain-meta-skill
+```
+
+If these commands pass, the package structure, route fixtures, and context budget are usable.
 
 ## Verification
 
