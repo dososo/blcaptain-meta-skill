@@ -1,4 +1,14 @@
+**简体中文** | [English](README.en.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [Français](README.fr.md) | [Italiano](README.it.md) | [Deutsch](README.de.md) | [Bahasa Indonesia](README.id.md) | [हिन्दी](README.hi.md)
+
+![version](https://img.shields.io/badge/version-v1.0-2563eb)
+![skill](https://img.shields.io/badge/skill-blcaptain--meta--skill-7c3aed)
+![workflow](https://img.shields.io/badge/workflow-8_steps-059669)
+![languages](https://img.shields.io/badge/languages-11-f59e0b)
+![status](https://img.shields.io/badge/status-public_release-111827)
+
 # BLCaptain Meta Skill：把经验做成可复用 Skill 的 Skill
+
+当前版本：v1.0
 
 如果你已经开始高频使用 AI，大概率会遇到一个很现实的问题：
 

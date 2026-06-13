@@ -1,10 +1,10 @@
 {
   "name": "blcaptain-meta-skill",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "owner": "blcaptain-meta-skill-maintainers",
   "updated_at": "2026-06-13",
   "review_cadence": "per-release",
-  "status": "experimental",
+  "status": "active",
   "maturity_tier": "production",
   "target_maturity": "governed",
   "lifecycle_stage": "production",
