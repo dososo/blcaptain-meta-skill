@@ -285,3 +285,9 @@ Notas de campo do AI Agents BLTeam. Prática real de produção e sinais primár
 X/Twitter: [@thinkszyg](https://x.com/thinkszyg)
 
 Email: blteam2026@outlook.com
+
+## License
+
+Gratuito para uso pessoal e projetos open-source. Uso comercial em código fechado requer autorização comercial.
+
+Veja [LICENSE](LICENSE) para detalhes.

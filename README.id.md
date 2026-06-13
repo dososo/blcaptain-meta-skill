@@ -285,3 +285,9 @@ Catatan lapangan AI Agents BLTeam: praktik produksi nyata dan sinyal tangan pert
 X/Twitter: [@thinkszyg](https://x.com/thinkszyg)
 
 Email: blteam2026@outlook.com
+
+## License
+
+Gratis untuk penggunaan pribadi dan proyek open-source. Penggunaan komersial closed-source memerlukan otorisasi komersial.
+
+Lihat [LICENSE](LICENSE) untuk detail.

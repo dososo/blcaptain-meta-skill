@@ -285,3 +285,9 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_
 X/Twitter: [@thinkszyg](https://x.com/thinkszyg)
 
 Email: blteam2026@outlook.com
+
+## License
+
+Бесплатно для личного использования и open-source проектов. Закрытое коммерческое использование требует коммерческого разрешения.
+
+Подробности см. в [LICENSE](LICENSE).

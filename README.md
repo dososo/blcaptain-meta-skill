@@ -368,3 +368,9 @@ AI Agents BLTeam 翻车笔记。真实战，生产级真干货持续分享。少
 X/Twitter: [@thinkszyg](https://x.com/thinkszyg)
 
 邮箱: blteam2026@outlook.com
+
+## License
+
+个人用途和开源项目可免费使用。闭源商业用途需要获得商业授权。
+
+详细条款见 [LICENSE](LICENSE)。

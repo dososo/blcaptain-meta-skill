@@ -285,3 +285,9 @@ AI Agents BLTeam の実戦記録。現場で使った生の知見と一次信号
 X/Twitter: [@thinkszyg](https://x.com/thinkszyg)
 
 メール: blteam2026@outlook.com
+
+## License
+
+個人利用およびオープンソースプロジェクトでは無料で利用できます。クローズドソースの商用利用には商用許可が必要です。
+
+詳細は [LICENSE](LICENSE) を参照してください。

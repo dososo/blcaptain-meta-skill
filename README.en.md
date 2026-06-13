@@ -294,3 +294,9 @@ AI Agents BLTeam field notes. Real production practice and durable first-hand si
 X/Twitter: [@thinkszyg](https://x.com/thinkszyg)
 
 Email: blteam2026@outlook.com
+
+## License
+
+Free for personal use and open-source projects. Closed-source commercial use requires commercial authorization.
+
+See [LICENSE](LICENSE) for details.
